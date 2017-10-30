@@ -30,7 +30,10 @@
     (doseq [entry entries]
       (doseq [msg (:messaging entry)]
         (cond
-          (message? msg) (forward-to! dialogflow-webhook msg)
+          (message? msg) (forward-to! dialogflow-webhook {:object "page"
+                                                          :entry [{:id :something
+                                                                   :time 123
+                                                                   :messaging [msg]}]})
           (auth? msg) (forward-to! eauth msg)
           :else (log/error (str "Unknown type!\n" msg))))))
   ; send ok to facebook.

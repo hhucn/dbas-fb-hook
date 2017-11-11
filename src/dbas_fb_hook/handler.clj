@@ -11,7 +11,7 @@
             [clj-http.client :as chttp :refer [json-encode json-decode]]))
 
 (def dialogflow-webhook "https://bots.dialogflow.com/facebook/72b13434-f5fb-4f51-9a9e-e1a6527f7190/webhook")
-(def eauth "https://e5acae5a.eu.ngrok.io/success")
+(def eauth "https://discuss.cs.uni-duesseldorf.de/eauth/success")
 
 (defn forward-to! [service body]
   (log/info "Forwarding to" service)

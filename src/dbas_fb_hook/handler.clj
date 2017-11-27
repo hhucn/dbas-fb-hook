@@ -20,7 +20,8 @@
                 :body (json-encode body)}))
 
 (defn message? [msg]
-  (get msg :message false))
+  (or (get msg :message false)
+      (get msg :postback false)))
 
 (defn auth? [msg]
   (get msg :account_linking false))
@@ -36,7 +37,7 @@
                                                                    :messaging [msg]}]})
           (auth? msg) (forward-to! eauth msg)
           :else (log/error (str "Unknown type!\n" msg))))))
-  ; send ok to facebook.
+  ;; send ok to facebook.
   "ok")
 
 (defroutes app-routes

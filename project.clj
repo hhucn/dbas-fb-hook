@@ -10,7 +10,8 @@
                  [ring-logger "0.7.7"]
                  [org.clojure/data.json "0.2.6"]
                  [clj-http "3.7.0"]
-                 [clj-fuzzy "0.4.0"]]
+                 [clj-fuzzy "0.4.0"]
+                 [org.clojure/core.async "0.4.474"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler dbas-fb-hook.handler/app}
   :profiles
